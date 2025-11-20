@@ -161,14 +161,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNombre.Focus();
                 return;
-            }
-            //Valida que el Telefono sea entero y no decimal.
-            if (!Validaciones.EsEnteroc(txtTelefono.Text))
-            {
-                MessageBox.Show("El numero de telefono debe ser un numero, no letras", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTelefono.Focus();
-                return;
+
             }
             //Telefono obligatorio
             if (string.IsNullOrWhiteSpace(txtTelefono.Text))
@@ -178,6 +171,15 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
                 txtTelefono.Focus();
                 return;
             }
+            //Valida que el Telefono sea entero y no decimal.
+            if (!Validaciones.EsEnteroc(txtTelefono.Text))
+            {
+                MessageBox.Show("El numero de telefono debe ser un numero, no letras", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTelefono.Focus();
+                return;
+            }
+            
             //Correo obligatorio
             if (string.IsNullOrWhiteSpace(txtCorreo.Text))
             {
