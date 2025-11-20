@@ -25,7 +25,9 @@ namespace ProyectoPOS_1CA_A
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //Crear instancia en el forlulario
+            FrmClientes frn = new FrmClientes();
+            frn.ShowDialog();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -53,6 +55,11 @@ namespace ProyectoPOS_1CA_A
         }
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
