@@ -42,7 +42,8 @@ namespace ProyectoPOS_1CA_A
 
         private void btnVentaRapida_Click(object sender, EventArgs e)
         {
-
+            FrmVentaRapida frm = new FrmVentaRapida();
+            frm.ShowDialog();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
@@ -62,6 +63,11 @@ namespace ProyectoPOS_1CA_A
         private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

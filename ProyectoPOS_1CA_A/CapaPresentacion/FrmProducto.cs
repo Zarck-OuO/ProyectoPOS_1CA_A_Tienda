@@ -20,6 +20,20 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
         }
         //creacion de una lista estatica que simulura la Db
         public static List<Producto> listaProductos = new List<Producto>();
+        private void DesabilidarBotones()
+        {
+            btnEditar.Enabled = false;
+            btnEliminar.Enabled = false;    
+            btnLimpiar.Enabled=false;
+            btnNuevo.Enabled = true;
+        }
+        private void HabilitarBotones()
+        {
+            btnEditar.Enabled = true;
+            btnEliminar.Enabled = true;
+            btnLimpiar.Enabled = true;
+            btnNuevo.Enabled = false;
+        }
 
 
         private void label4_Click(object sender, EventArgs e)
@@ -44,6 +58,8 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
 
         private void FrmProducto_Load(object sender, EventArgs e)
         {
+            //Dabilitar botonoces
+            DesabilidarBotones(); //Al iniciar no esta activos
             //Cargar los datos iniciales
             if (!listaProductos.Any())
                 listaProductos.Add(new Producto
@@ -149,6 +165,8 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
             txtStock.Text = dgvProductos.CurrentRow.Cells["Stock"].Value.ToString();
             txtPrecio.Text = dgvProductos.CurrentRow.Cells["Precio"].Value.ToString();
             chkEstado.Checked = (bool)dgvProductos.CurrentRow.Cells["Estado"].Value;
+            // Habilitar botones editar y eliminar
+            HabilitarBotones();
 
         }
 
@@ -174,6 +192,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
                 listaProductos.Remove(prod);//Con remove elimino el producto de la lista
                 RefrescarGrid(); //Refrescar el datagridview
                 LimpiarCampos(); //Limpiar los controles
+                DesabilidarBotones();
             }
                 
         
@@ -238,11 +257,17 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             RefrescarGrid();
             LimpiarCampos();
+            DesabilidarBotones();
         }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

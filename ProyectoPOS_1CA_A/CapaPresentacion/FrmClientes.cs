@@ -19,6 +19,21 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
         }
         //creacion de una lista estatica que simulura la Db
         public static List<Clientes> listaClientes = new List<Clientes>();
+        // desabilitar botones y habilitar
+        private void DesabilitarBotones()
+        {
+            btnAgregar.Enabled = true;
+            btnEditar.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnLimpiar.Enabled = false;
+        }
+        private void HabilitarBotones()
+        {
+            btnAgregar.Enabled = false;
+            btnEditar.Enabled = true;
+            btnEliminar.Enabled = true;
+            btnLimpiar.Enabled = true;
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -27,6 +42,9 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
 
         private void VentaRapida_Load(object sender, EventArgs e)
         {
+            // funcion desabilitar botones
+            DesabilitarBotones();
+
             if (!listaClientes.Any())
                 listaClientes.Add(new Clientes
                 {
@@ -57,7 +75,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -93,6 +111,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
                 RefrescarGrid(); //Refrescar el data
                                  //gridview
                 LimpiarCampos(); //Limpiar los controles
+                DesabilitarBotones();
             }
         }
 
@@ -145,6 +164,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             RefrescarGrid();
             LimpiarCampos();
+            DesabilitarBotones();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -245,6 +265,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
             txtTelefono.Text = dgvClientes.CurrentRow.Cells["Telefono"].Value.ToString();
             cbxTipoCLiente.Text = dgvClientes.CurrentRow.Cells["TipoCliente"].Value.ToString();
             chkEstado.Checked = (bool)dgvClientes.CurrentRow.Cells["Estado"].Value;
+            HabilitarBotones();
 
         }
 

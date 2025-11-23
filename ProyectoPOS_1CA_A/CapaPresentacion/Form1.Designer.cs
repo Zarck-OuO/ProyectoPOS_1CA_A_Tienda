@@ -229,6 +229,7 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnCorteCaja
             // 
@@ -302,10 +303,10 @@
             this.btnVentaRapida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVentaRapida.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentaRapida.Image = global::ProyectoPOS_1CA_A.Properties.Resources.descarga1;
-            this.btnVentaRapida.Location = new System.Drawing.Point(11, 32);
+            this.btnVentaRapida.Location = new System.Drawing.Point(3, 32);
             this.btnVentaRapida.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.btnVentaRapida.Name = "btnVentaRapida";
-            this.btnVentaRapida.Size = new System.Drawing.Size(180, 55);
+            this.btnVentaRapida.Size = new System.Drawing.Size(188, 55);
             this.btnVentaRapida.TabIndex = 0;
             this.btnVentaRapida.Text = "  Venta Rápida";
             this.btnVentaRapida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

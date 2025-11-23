@@ -67,6 +67,12 @@
     <Compile Include="CapaPresentacion\FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\FrmVentaRapida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmVentaRapida.Designer.cs">
+      <DependentUpon>FrmVentaRapida.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CapaPresentacion\Form1.resx">
