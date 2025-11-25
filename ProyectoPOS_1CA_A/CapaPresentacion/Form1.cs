@@ -26,7 +26,7 @@ namespace ProyectoPOS_1CA_A
         private void button1_Click(object sender, EventArgs e)
         {
             //Crear instancia en el forlulario
-            FrmClientes frn = new FrmClientes();
+            FrmCliente2 frn = new FrmCliente2();
             frn.ShowDialog();
         }
 
