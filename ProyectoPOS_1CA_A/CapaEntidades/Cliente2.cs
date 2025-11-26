@@ -13,7 +13,6 @@ namespace ProyectoPOS_1CA_A.CapaEntidades
         public string Nombre { get; set; }
         public string Correo { get; set; }
         public int Telefono { get; set; }
-        public string TipoCliente { get; set; }
         public bool Estado { get; set; }
     }
 }

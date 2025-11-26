@@ -265,6 +265,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
             txtTelefono.Text = dgvClientes.CurrentRow.Cells["Telefono"].Value.ToString();
             cbxTipoCLiente.Text = dgvClientes.CurrentRow.Cells["TipoCliente"].Value.ToString();
             chkEstado.Checked = (bool)dgvClientes.CurrentRow.Cells["Estado"].Value;
+
             HabilitarBotones();
 
         }

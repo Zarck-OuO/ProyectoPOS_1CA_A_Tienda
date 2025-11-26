@@ -32,6 +32,14 @@ namespace ProyectoPOS_1CA_A.CapaNegocio
                 return c.Id;
             }
         }
+        public void Eliminar(int id)
+        {
+            dal.Eliminar(id);
+        }
+        public DataTable Buscar(string nombre)
+        {
+            return dal.Buscar(nombre);
+        }
     }
 }
 

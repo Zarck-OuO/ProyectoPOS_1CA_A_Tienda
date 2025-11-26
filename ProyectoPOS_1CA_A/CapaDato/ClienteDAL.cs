@@ -18,7 +18,7 @@ namespace ProyectoPOS_1CA_A.CapaDato
             DataTable dt = new DataTable(); //Tabla en memeroia
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = @"Select Id,NombreCompleto,CorreoC,Telefono,Id_TipoCliente,Estado From Cliente";
+                string sql = @"Select Id,NombreCompleto,CorreoC,Telefono,Estado From Cliente";
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
 
                 {
@@ -32,15 +32,14 @@ namespace ProyectoPOS_1CA_A.CapaDato
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = @"INSERT INTO Cliente(Id,NombreCompleto,CorreoC,Telefono,Id_TipoCliente,Estado) 
-                Valvues(@Id, @NombreCompleto, @CorreoC, @Telefono, @Id_TipoCliente, @Estado); SELECT SCOPE_IDENTITY();";
+                string sql = @"INSERT INTO Cliente(NombreCompleto,CorreoC,Telefono,Estado) 
+                Values(@NombreCompleto, @CorreoC, @Telefono, @Estado); SELECT SCOPE_IDENTITY();";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@NombreCompleto", c.Nombre);
                     cmd.Parameters.AddWithValue("@CorreoC", c.Correo);
                     cmd.Parameters.AddWithValue("@Telefono", c.Telefono);
-                    cmd.Parameters.AddWithValue("@Id_TipoCliente", c.TipoCliente);
                     cmd.Parameters.AddWithValue("@Estado", c.Estado);
 
                     cn.Open();
@@ -66,11 +65,25 @@ namespace ProyectoPOS_1CA_A.CapaDato
                     cmd.Parameters.AddWithValue("@NombreCompleto", c.Nombre);
                     cmd.Parameters.AddWithValue("@CorreoC", c.Correo);
                     cmd.Parameters.AddWithValue("@Telefono", c.Telefono);
-                    cmd.Parameters.AddWithValue("@Id_TipoCliente", c.TipoCliente);
                     cmd.Parameters.AddWithValue("@Estado", c.Estado);
 
                     cn.Open();
                     return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+        public bool Eliminar(int id)
+        {
+            using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
+            {
+                string sql = "DELETE FROM cliente WHERE Id=@Id";
+                using (SqlCommand cmd = new SqlCommand(sql, cn))
+                {
+                    cmd.Parameters.AddWithValue ("@id", id);
+                    cn.Open();
+                    return cmd.ExecuteNonQuery () > 0;
+                    //Elimina y devuleve true si se elimino almenos una fila
                 }
             }
         }
@@ -79,7 +92,7 @@ namespace ProyectoPOS_1CA_A.CapaDato
             DataTable dt= new DataTable();
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = @"SELECT Id, NombreCompleto, CorreoC, Telefono, Id_TipoCliente, Estado 
+                string sql = @"SELECT Id, NombreCompleto, CorreoC, Telefono, Estado 
                 From cliente
                 WHERE NombreCompleto LIKE @filtro OR Telefono Like @Filtro";
 
