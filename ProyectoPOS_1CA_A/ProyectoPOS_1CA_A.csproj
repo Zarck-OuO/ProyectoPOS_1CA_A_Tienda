@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="CapaDato\ClienteDAL.cs" />
     <Compile Include="CapaDato\Conexion.cs" />
+    <Compile Include="CapaEntidades\Categoria.cs" />
+    <Compile Include="CapaEntidades\CategoriaDAL.cs" />
     <Compile Include="CapaEntidades\Cliente2.cs" />
     <Compile Include="CapaEntidades\Clientes.cs" />
     <Compile Include="CapaEntidades\Producto.cs" />

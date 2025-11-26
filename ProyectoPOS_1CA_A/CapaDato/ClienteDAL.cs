@@ -54,8 +54,7 @@ namespace ProyectoPOS_1CA_A.CapaDato
                 string sql = @"UPDATE CLIENTE SET 
                 NombreCompleto=@NombreCompleto, 
                 CorreoC=@CorreoC, 
-                Telefono=@Telefono, 
-                Id_TipoCliente, 
+                Telefono=@Telefono,  
                 Estado=@Estado 
                 where Id=@Id;";
                 
