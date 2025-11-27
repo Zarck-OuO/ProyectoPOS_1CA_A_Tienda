@@ -9,7 +9,7 @@ namespace ProyectoPOS_1CA_A.CapaEntidades
     public class Categoria
     {
         public int Id { get; set; }     // PK autoincremental
-        public string NombreCategoria { get; set; }        // Nombre de la categoría
+        public string NombreProducto { get; set; }        // Nombre de la categoría
         public string Descripcion { get; set; }   // Descripción
 
     }

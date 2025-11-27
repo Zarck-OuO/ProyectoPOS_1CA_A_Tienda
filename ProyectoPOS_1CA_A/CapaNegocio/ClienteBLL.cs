@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProyectoPOS_1CA_A.CapaNegocio
 {
@@ -32,14 +33,26 @@ namespace ProyectoPOS_1CA_A.CapaNegocio
                 return c.Id;
             }
         }
-        public void Eliminar(int id)
-        {
-            dal.Eliminar(id);
-        }
+
         public DataTable Buscar(string nombre)
         {
             return dal.Buscar(nombre);
         }
+
+        public void Eliminar(int id)
+        {
+            if (dal.TieneVentasAsociadas(id))
+                MessageBox.Show("Este cliente tiene ventas registradas. No se puede eliminar.",
+                      "Aviso",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Warning);
+            return;
+            {
+
+            }
+
+        }
+
     }
 }
 
