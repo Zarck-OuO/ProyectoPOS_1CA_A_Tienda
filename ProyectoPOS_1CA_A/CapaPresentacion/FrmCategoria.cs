@@ -17,7 +17,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
         int categoriaID = 0; // Guarda el ID seleccionado
         string Modo = "Nuevo"; //Buevo o Editar
 
- 
+
         public FrmCategoria()
         {
             InitializeComponent();
@@ -64,14 +64,14 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
             // Si clickeamos una fila válida
             if (e.RowIndex >= 0)
             {
-                categoriaID = Convert.ToInt32(dgvCategorias.Rows[e.RowIndex].Cells["CategoriaID"].Value);
+                categoriaID = Convert.ToInt32(dgvCategorias.Rows[e.RowIndex].Cells["Id"].Value);
             }
 
         }
 
         private void dgvCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            categoriaID = Convert.ToInt32(dgvCategorias.Rows[e.RowIndex].Cells["CategoriaID"].Value);
+         
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
             frm.Id = categoriaID;
 
             // Pasar información desde el DGV
-            frm.Nombre = dgvCategorias.CurrentRow.Cells["Nombre"].Value.ToString();
+            frm.NombreCategoria = dgvCategorias.CurrentRow.Cells["NombreCategoria"].Value.ToString();
             frm.Descripcion = dgvCategorias.CurrentRow.Cells["Descripcion"].Value.ToString();
 
             frm.ShowDialog();
@@ -127,7 +127,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
             FrmCategoriaEliminar frm = new FrmCategoriaEliminar();
 
             frm.Id = categoriaID;
-            frm.NombreProducto = dgvCategorias.CurrentRow.Cells["NombreProducto"].Value.ToString();
+            frm.NombreCategoria = dgvCategorias.CurrentRow.Cells["NombreCategoria"].Value.ToString();
             frm.Descripcion = dgvCategorias.CurrentRow.Cells["Descripcion"].Value.ToString();
 
             frm.ShowDialog();
@@ -140,6 +140,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
             Close();
         }
     }
+}
 
 
 

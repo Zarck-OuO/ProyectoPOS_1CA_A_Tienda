@@ -16,7 +16,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
     public partial class FrmCategoriaEliminar : Form
     {
         public int Id { get; set; }
-        public string NombreProducto { get; set; }
+        public string NombreCategoria { get; set; }
         public string Descripcion { get; set; }
 
         CategoriaBLL bll = new CategoriaBLL();
@@ -29,7 +29,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
         private void FrmCategoriaEliminar_Load(object sender, EventArgs e)
         {
             // Mostrar los datos en etiquetas
-            txtNombreProducto.Text = NombreProducto;
+            txtNombreCategoria.Text = NombreCategoria;
             txtDescripcion.Text = Descripcion;
 
         }
@@ -50,7 +50,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
                 if (r == DialogResult.No)
                     return;
 
-                bll.Eliminar(CategoriaID);
+                bll.Eliminar(Id);
 
                 MessageBox.Show(
                     "La categoría ha sido eliminada correctamente.",
@@ -99,6 +99,11 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
         {
             Close();
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-}
+

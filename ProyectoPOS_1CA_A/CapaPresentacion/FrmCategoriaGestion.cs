@@ -18,7 +18,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
         //Definimos estos atributos para recibir datos desde FrmCategoria y guardarlos acá
         public string Modo { get; set; }        // Define la acción
         public int Id { get; set; }
-        public string NombreProducto { get; set; }
+        public string NombreCategoria { get; set; }
         public string Descripcion { get; set; }
 
         CategoriaBLL bll = new CategoriaBLL();
@@ -42,7 +42,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
             {
                 lblTitulo.Text = "MODIFICAR CATEGORÍA";
                 // Cargar datos en controles
-                txtNombre.Text = NombreProducto;
+                txtNombreCategoria.Text = NombreCategoria;
                 txtDescripcion.Text = Descripcion;
             }
 
@@ -53,7 +53,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtNombre.Text))
+                if (string.IsNullOrWhiteSpace(txtNombreCategoria.Text))
                 {
                     MessageBox.Show(
                         "Debe ingresar un nombre para la categoría.",
@@ -67,7 +67,7 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
                 Categoria c = new Categoria
                 {
                     Id = Id,
-                    NombreProducto = txtNombreProducto.Text.Trim(),
+                    NombreCategoria = txtNombreCategoria.Text.Trim(),
                     Descripcion = txtDescripcion.Text.Trim()
                 };
                 bll.Guardar(c);
@@ -107,6 +107,11 @@ namespace ProyectoPOS_1CA_A.CapaPresentacion
         {
             Close(); // Cierra sin hacer nada
         }
+
+        private void txtNombreProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-}
+

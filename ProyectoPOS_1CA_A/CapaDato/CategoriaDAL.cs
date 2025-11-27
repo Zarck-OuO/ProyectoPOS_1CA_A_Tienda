@@ -17,7 +17,7 @@ namespace ProyectoPOS_1CA_A.CapaEntidades
 
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = "SELECT Id, NombreCategoria, Descripcion FROM Categoria";
+                string sql = "SELECT Id, NombreCategoria, Descripcion FROM CategoriaProducto";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
@@ -34,14 +34,14 @@ namespace ProyectoPOS_1CA_A.CapaEntidades
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
                 // SCOPE_IDENTITY devuelve el ID recién insertado
-                string sql = @"INSERT INTO Categoria (NombreCategoria, Descripcion)
-                    VALUES (@nombre, @descripcion);
+                string sql = @"INSERT INTO CategoriaProducto (NombreCategoria, Descripcion)
+                    VALUES (@NombreCategoria, @Descripcion);
                     SELECT SCOPE_IDENTITY();";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
-                    cmd.Parameters.AddWithValue("@NombreCategoria", c.NombreProducto);
-                    cmd.Parameters.AddWithValue("@descripcion", (object)c.Descripcion ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@NombreCategoria", c.NombreCategoria);
+                    cmd.Parameters.AddWithValue("@Descripcion", (object)c.Descripcion ?? DBNull.Value);
 
                     cn.Open();
 
@@ -50,22 +50,23 @@ namespace ProyectoPOS_1CA_A.CapaEntidades
                 }
 
             }
-             // MÉTODO: Actualizar categoría existente
+            // MÉTODO: Actualizar categoría existente
+        }
 
         public bool Actualizar(Categoria c)
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = @"UPDATE Categoria SET
-                   Nombre=@NombreProducto,
+                string sql = @"UPDATE CategoriaProducto SET
+                   NombreCategoria=@NombreCategoria,
                    Descripcion=@descripcion
-                   WHERE Id=@id";
+                   WHERE Id=@Id";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
-                    cmd.Parameters.AddWithValue("@id", c.Id);
-                    cmd.Parameters.AddWithValue("@NombreProducto", c.NombreProducto);
-                    cmd.Parameters.AddWithValue("@descripcion", (object)c.Descripcion ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Id", c.Id);
+                    cmd.Parameters.AddWithValue("@NombreCategoria", c.NombreCategoria);
+                    cmd.Parameters.AddWithValue("@Descripcion", (object)c.Descripcion ?? DBNull.Value);
                     /*La línea de código agrega un parámetro llamado @descripcion al comando SQL. Si la propiedad 
                      * c.Descripcion en C# es null, se envía un valor NULL a la base de datos (usando DBNull.Value); 
                      * de lo contrario, se envía el valor real de la descripción.*/
@@ -81,15 +82,15 @@ namespace ProyectoPOS_1CA_A.CapaEntidades
 
         // MÉTODO: Eliminar categoría por ID
 
-        public bool Eliminar(int id)
+        public bool Eliminar(int Id)
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = "DELETE FROM Categoria WHERE Id=@id";
+                string sql = "DELETE FROM CategoriaProducto WHERE Id=@id";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@id", Id);
 
                     cn.Open();
 
@@ -107,9 +108,9 @@ namespace ProyectoPOS_1CA_A.CapaEntidades
 
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = @"SELECT Id, NombreProducto, Descripcion
-                               FROM Categoria
-                               WHERE Nombre LIKE @filtro 
+                string sql = @"SELECT Id, NombreCategoria, Descripcion
+                               FROM CategoriaProducto
+                               WHERE NombreCategoria LIKE @filtro 
                                   OR Descripcion LIKE @filtro";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
@@ -127,15 +128,15 @@ namespace ProyectoPOS_1CA_A.CapaEntidades
         // MÉTODO NUEVO: ¿Existe una categoría con ese nombre?
         // (Validación para INSERTAR)
 
-        public bool ExisteNombre(string NombreProducto)
+        public bool ExisteNombre(string NombreCategoria)
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
-                string sql = "SELECT COUNT(*) FROM Categoria WHERE Nombre = @NombreProducto";
+                string sql = "SELECT COUNT(*) FROM CategoriaProducto WHERE NombreCategoria = @NombreCategoria";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
-                    cmd.Parameters.AddWithValue("@NombreProducto", NombreProducto
+                    cmd.Parameters.AddWithValue("@NombreCategoria", NombreCategoria
                         );
 
                     cn.Open();
@@ -147,18 +148,18 @@ namespace ProyectoPOS_1CA_A.CapaEntidades
         // MÉTODO NUEVO: ¿Existe el nombre en OTRA categoría?
         // (Validación para EDITAR sin permitir duplicados)
 
-        public bool ExisteNombreEnOtraCategoria(string NombreProducto, int id)
+        public bool ExisteNombreEnOtraCategoria(string NombreCategoria, int id)
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
                 string sql = @"SELECT COUNT(*) 
-                               FROM Categoria 
-                               WHERE NombreProducto = @NombreProducto AND Id <> @id";
+                               FROM CategoriaProducto
+                               WHERE NombreCategoria = @NombreCategoria AND Id <> @Id";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
-                    cmd.Parameters.AddWithValue("@NombreProducto", NombreProducto);
-                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@NombreCategoria", NombreCategoria);
+                    cmd.Parameters.AddWithValue("@Id", id);
 
                     cn.Open();
                     return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
@@ -169,17 +170,17 @@ namespace ProyectoPOS_1CA_A.CapaEntidades
         // MÉTODO NUEVO: Validar relación FK
         // ¿Tiene productos asociados?
 
-        public bool TieneProductosAsociados(int idCategoriaProducto)
+        public bool TieneProductosAsociados(int Id_CategoriaProducto)
         {
             using (SqlConnection cn = new SqlConnection(Conexion.Cadena))
             {
                 string sql = @"SELECT COUNT(*) 
                                FROM Producto 
-                               WHERE Id_CategoriaProducto = @idCategoria";
+                               WHERE Id_CategoriaProducto = @id_CategoriaProducto";
 
                 using (SqlCommand cmd = new SqlCommand(sql, cn))
                 {
-                    cmd.Parameters.AddWithValue("@idCategoriaProducto", idCategoriaProducto);
+                    cmd.Parameters.AddWithValue("@id_CategoriaProducto", Id_CategoriaProducto);
 
                     cn.Open();
                     return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
