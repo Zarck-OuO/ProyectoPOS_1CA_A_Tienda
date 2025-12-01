@@ -156,6 +156,35 @@ namespace ProyectoPOS_1CA_A.CapaDato
                 }
             }
         }
+        public static List<Cliente2> ListarActivos()
+        {
+            List<Cliente2> lista = new List<Cliente2>();
+
+            using (SqlConnection con = new SqlConnection(Conexion.Cadena))
+            {
+                string sql = "SELECT * FROM Cliente WHERE Estado = 1";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    con.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Cliente2
+                            {
+                                Id = Convert.ToInt32(dr["Id"]),
+                                Nombre = dr["NombreCompleto"].ToString(),
+                                Telefono = int.Parse(dr["Telefono"].ToString()),
+                                Estado = Convert.ToBoolean(dr["Estado"])
+                            });
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
 
     }
 }

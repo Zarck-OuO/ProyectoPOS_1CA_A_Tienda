@@ -48,14 +48,22 @@
   <ItemGroup>
     <Compile Include="CapaDato\ClienteDAL.cs" />
     <Compile Include="CapaDato\Conexion.cs" />
+    <Compile Include="CapaDato\MetodoPagoDAL.cs" />
+    <Compile Include="CapaDato\ProductoDAL.cs" />
+    <Compile Include="CapaDato\VentaDAL.cs" />
     <Compile Include="CapaEntidades\Categoria.cs" />
     <Compile Include="CapaDato\CategoriaDAL.cs" />
     <Compile Include="CapaEntidades\Cliente2.cs" />
     <Compile Include="CapaEntidades\Clientes.cs" />
+    <Compile Include="CapaEntidades\DetalleVenta.cs" />
+    <Compile Include="CapaEntidades\MetodoPago.cs" />
     <Compile Include="CapaEntidades\Producto.cs" />
+    <Compile Include="CapaEntidades\RespuestaOperacion.cs" />
     <Compile Include="CapaEntidades\Validaciones.cs" />
+    <Compile Include="CapaEntidades\Venta.cs" />
     <Compile Include="CapaNegocio\CategoriaBLL.cs" />
     <Compile Include="CapaNegocio\ClienteBLL.cs" />
+    <Compile Include="CapaNegocio\VentaBLL.cs" />
     <Compile Include="CapaPresentacion\FrmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +106,12 @@
     <Compile Include="CapaPresentacion\FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaPresentacion\FrmPruebas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaPresentacion\FrmPruebas.Designer.cs">
+      <DependentUpon>FrmPruebas.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaPresentacion\FrmVentaRapida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +140,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaPresentacion\FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmPruebas.resx">
+      <DependentUpon>FrmPruebas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaPresentacion\FrmVentaRapida.resx">
+      <DependentUpon>FrmVentaRapida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

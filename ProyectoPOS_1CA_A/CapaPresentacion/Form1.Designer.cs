@@ -56,6 +56,7 @@
             this.btnVentaRapida = new System.Windows.Forms.Button();
             this.panelCentral = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.PictureBox();
+            this.btnPruebas = new System.Windows.Forms.Button();
             this.menuSuperior.SuspendLayout();
             this.panelIzquierdo.SuspendLayout();
             this.panelCentral.SuspendLayout();
@@ -64,6 +65,7 @@
             // 
             // menuSuperior
             // 
+            this.menuSuperior.AutoSize = false;
             this.menuSuperior.BackColor = System.Drawing.Color.White;
             this.menuSuperior.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.menuSuperior.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -75,7 +77,7 @@
             this.menuSuperior.Location = new System.Drawing.Point(0, 0);
             this.menuSuperior.Name = "menuSuperior";
             this.menuSuperior.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuSuperior.Size = new System.Drawing.Size(586, 27);
+            this.menuSuperior.Size = new System.Drawing.Size(678, 27);
             this.menuSuperior.TabIndex = 0;
             this.menuSuperior.Text = "menuStrip1";
             // 
@@ -204,6 +206,7 @@
             // panelIzquierdo
             // 
             this.panelIzquierdo.BackColor = System.Drawing.Color.DarkKhaki;
+            this.panelIzquierdo.Controls.Add(this.btnPruebas);
             this.panelIzquierdo.Controls.Add(this.btnSalir);
             this.panelIzquierdo.Controls.Add(this.btnCorteCaja);
             this.panelIzquierdo.Controls.Add(this.btnInventario);
@@ -212,9 +215,9 @@
             this.panelIzquierdo.Controls.Add(this.btnVentaRapida);
             this.panelIzquierdo.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelIzquierdo.Location = new System.Drawing.Point(0, 27);
-            this.panelIzquierdo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelIzquierdo.Margin = new System.Windows.Forms.Padding(2);
             this.panelIzquierdo.Name = "panelIzquierdo";
-            this.panelIzquierdo.Size = new System.Drawing.Size(150, 422);
+            this.panelIzquierdo.Size = new System.Drawing.Size(150, 568);
             this.panelIzquierdo.TabIndex = 1;
             // 
             // btnSalir
@@ -223,7 +226,7 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Image = global::ProyectoPOS_1CA_A.Properties.Resources.descarga__4_;
-            this.btnSalir.Location = new System.Drawing.Point(10, 331);
+            this.btnSalir.Location = new System.Drawing.Point(8, 472);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 8, 2, 8);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(135, 45);
@@ -317,39 +320,59 @@
             // 
             // panelCentral
             // 
+            this.panelCentral.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelCentral.Controls.Add(this.Logo);
-            this.panelCentral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCentral.Location = new System.Drawing.Point(150, 27);
-            this.panelCentral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelCentral.Location = new System.Drawing.Point(150, 37);
+            this.panelCentral.Margin = new System.Windows.Forms.Padding(2);
             this.panelCentral.Name = "panelCentral";
-            this.panelCentral.Size = new System.Drawing.Size(436, 422);
+            this.panelCentral.Size = new System.Drawing.Size(460, 532);
             this.panelCentral.TabIndex = 2;
             this.panelCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCentral_Paint);
             // 
             // Logo
             // 
             this.Logo.BackColor = System.Drawing.Color.White;
+            this.Logo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Logo.ErrorImage = null;
             this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
-            this.Logo.Location = new System.Drawing.Point(70, 2);
-            this.Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Logo.Location = new System.Drawing.Point(0, 0);
+            this.Logo.Margin = new System.Windows.Forms.Padding(2);
             this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(307, 283);
+            this.Logo.Size = new System.Drawing.Size(460, 532);
             this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Logo.TabIndex = 0;
             this.Logo.TabStop = false;
+            // 
+            // btnPruebas
+            // 
+            this.btnPruebas.BackColor = System.Drawing.Color.White;
+            this.btnPruebas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPruebas.Font = new System.Drawing.Font("Segoe UI Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPruebas.Image = global::ProyectoPOS_1CA_A.Properties.Resources.descarga__2_;
+            this.btnPruebas.Location = new System.Drawing.Point(8, 331);
+            this.btnPruebas.Margin = new System.Windows.Forms.Padding(2, 8, 2, 8);
+            this.btnPruebas.Name = "btnPruebas";
+            this.btnPruebas.Size = new System.Drawing.Size(135, 45);
+            this.btnPruebas.TabIndex = 3;
+            this.btnPruebas.Text = "Prubeas";
+            this.btnPruebas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPruebas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPruebas.UseVisualStyleBackColor = false;
+            this.btnPruebas.Click += new System.EventHandler(this.btnPruebas_Click);
             // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(586, 449);
+            this.ClientSize = new System.Drawing.Size(678, 595);
             this.Controls.Add(this.panelCentral);
             this.Controls.Add(this.panelIzquierdo);
             this.Controls.Add(this.menuSuperior);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuSuperior;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FrmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -361,7 +384,6 @@
             this.panelCentral.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -394,6 +416,7 @@
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnCorteCaja;
+        private System.Windows.Forms.Button btnPruebas;
     }
 }
 

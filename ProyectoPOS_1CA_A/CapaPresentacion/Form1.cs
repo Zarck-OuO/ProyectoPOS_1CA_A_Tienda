@@ -70,5 +70,11 @@ namespace ProyectoPOS_1CA_A
         {
             this.Close();
         }
+
+        private void btnPruebas_Click(object sender, EventArgs e)
+        {
+            FrmPruebas frm = new FrmPruebas();
+            frm.ShowDialog();
+        }
     }
 }
